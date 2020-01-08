@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 require('dotenv').config();
 
-const items = require('./routes/api/items')
+const ideas = require('./routes/api/ideas')
 
 const app = express();
 
@@ -22,7 +22,7 @@ mongoose
     .catch((err) => console.log(err));
 
 // Use Routes
-app.use('/api/items', items)
+app.use('/api/ideas', ideas)
 
 // Serve static assets
 if (process.env.NODE_ENV === 'production') {
