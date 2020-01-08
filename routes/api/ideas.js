@@ -34,7 +34,7 @@ router.put('/:id', (req, res) => {
         .then(idea => idea.update({
             title: req.body.title,
             content: req.body.content
-        }).then(() => res.json(idea)))
+        }).then(() => res.json({ success: true })))
         .catch(err => res.status(404).json({ success: false }))
 })
 
