@@ -3,15 +3,18 @@ const Schema = mongoose.Schema;
 const moment = require('moment')
 
 // Create Schema
-const ItemSchema = new Schema({
-    name: {
+const IdeaSchema = new Schema({
+    title: {
         type: String,
         required: true
     },
-    date: {
+    content: {
+        type: String
+    },
+    createdAt: {
         type: Date,
         default: moment()
     }
 })
 
-module.exports = Item = mongoose.model('item', ItemSchema);
+module.exports = Idea = mongoose.model('idea', IdeaSchema);
