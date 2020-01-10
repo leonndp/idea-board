@@ -1,32 +1,51 @@
 import axios from 'axios'
 import { GET_IDEAS, ADD_IDEA, REMOVE_IDEA, UPDATE_IDEA, IDEAS_LOADING } from './types'
 
-export const getIdeas = () => {
-    return {
-        type: GET_IDEAS
+export const addIdea = (idea) => ({
+    type: ADD_IDEA,
+    payload: idea
+})
+
+export const removeIdea = (id) => ({
+    type: REMOVE_IDEA,
+    payload: id
+})
+
+export const updateIdea = (id, updates) => ({
+    type: UPDATE_IDEA,
+    payload: {
+        id,
+        updates
     }
+})
+
+/* export const getIdeas = () => dispatch => {
+    dispatch(setIdeasLoading());
+    axios.get('/api/ideas/')
+        .then(res => dispatch({
+            type: GET_IDEAS,
+            payload: res.data
+        }))
 }
 
-export const addIdea = idea => {
-    return {
-        type: ADD_IDEA,
-        payload: idea
-    }
+export const removeIdea = (id) => dispatch => {
+    axios.delete(`/api/ideas/${id}`, id)
+        .then(res => dispatch({
+            type: REMOVE_IDEA,
+            payload: id
+        }))
 }
 
-export const REMOVE_IDEA = id => {
-    return {
-        type: REMOVE_IDEA,
-        payload: id
-    }
+export const addIdea = (idea) => dispatch => {
+    axios.post('/api/ideas', idea)
+        .then(res => dispatch({
+            type: ADD_IDEA,
+            payload: res.data
+        }))
 }
 
-export const UPDATE_IDEA = (id, updates) => {
+export const setIdeasLoading = () => {
     return {
-        type: UPDATE_IDEA,
-        payload: {
-            id,
-            updates
-        }
+        type: IDEAS_LOADING
     }
-}
+} */

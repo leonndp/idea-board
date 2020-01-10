@@ -1,11 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import IdeaListCard from './IdeaListCard';
+// import { getIdeas } from '../actions/ideaActions'
 
-class IdeaList extends React.Component {
-    render() {
-        return (
-            <div>This is the IdeaList component</div>
-        )
-    }
-}
+export const IdeaList = (props) => (
+    <div>
+        {
+            props.ideas.map(idea => (
+                <IdeaListCard key={idea.id} idea={idea} />
+            ))
+        }
+    </div>
+)
 
-export default IdeaList
+const mapStateToProps = (state) => ({
+    ideas: state.ideas
+})
+
+export default connect(mapStateToProps)(IdeaList)
