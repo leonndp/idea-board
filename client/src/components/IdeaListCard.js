@@ -26,10 +26,6 @@ class IdeaListCard extends React.Component {
         this.props.updateIdea(this.props.idea.id, idea)
     }
 
-    // onSubmit = (idea) => {
-    //     this.props.
-    // }
-
     render() {
         return (
             <div>
