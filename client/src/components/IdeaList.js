@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import IdeaListCard from './IdeaListCard';
+import NewIdeaCard from './NewIdeaCard'
 // import { getIdeas } from '../actions/ideaActions'
 
 export const IdeaList = (props) => (
@@ -10,6 +11,7 @@ export const IdeaList = (props) => (
                 <IdeaListCard key={idea.id} idea={idea} />
             ))
         }
+        <NewIdeaCard />
     </div>
 )
 
