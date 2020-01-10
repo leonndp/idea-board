@@ -6,7 +6,8 @@ export default class IdeaForm extends React.Component {
 
         this.state = {
             title: props.idea ? props.idea.title : '',
-            content: props.idea ? props.idea.content : ''
+            content: props.idea ? props.idea.content : '',
+            error: ''
         }
     }
 
@@ -23,16 +24,22 @@ export default class IdeaForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        this.props.onSubmit({
-            title: this.state.title,
-            content: this.state.content
-        })
-        this.props.toggleEdit();
+        if (!this.state.title || !this.state.content) {
+            this.setState(() => ({ error: 'Please provide a title and content for your idea.' }))
+        } else {
+            this.setState(() => ({ error: '' }))
+            this.props.onSubmit({
+                title: this.state.title,
+                content: this.state.content
+            })
+            this.props.toggleEdit();
+        }
     }
 
     render() {
         return (
             <form onSubmit={this.onSubmit}>
+                {this.state.error && <p>{this.state.error}</p>}
                 <input
                     type="text"
                     placeholder="title"

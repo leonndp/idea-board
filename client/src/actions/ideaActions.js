@@ -1,9 +1,13 @@
 import axios from 'axios'
+import uuid from 'uuid'
 import { GET_IDEAS, ADD_IDEA, REMOVE_IDEA, UPDATE_IDEA, IDEAS_LOADING } from './types'
 
 export const addIdea = (idea) => ({
     type: ADD_IDEA,
-    payload: idea
+    payload: {
+        id: uuid(),
+        ...idea
+    }
 })
 
 export const removeIdea = (id) => ({
