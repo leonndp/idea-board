@@ -1,25 +1,11 @@
 import { GET_IDEAS, ADD_IDEA, REMOVE_IDEA, UPDATE_IDEA, IDEAS_LOADING } from '../actions/types'
 
-const ideasReducerDefaultState = [
-    {
-        id: 1,
-        title: 'wwwww',
-        content: '111'
-    },
-    {
-        id: 2,
-        title: 'vvvv',
-        content: '222'
-    },
-    {
-        id: 3,
-        title: 'sdfsdf',
-        content: '33333'
-    }
-];
+const ideasReducerDefaultState = []
 
 export default (state = ideasReducerDefaultState, action) => {
     switch (action.type) {
+        case GET_IDEAS:
+            return state.concat(action.payload)
         case ADD_IDEA:
             return [
                 ...state,
@@ -27,7 +13,7 @@ export default (state = ideasReducerDefaultState, action) => {
             ]
 
         case REMOVE_IDEA:
-            return state.filter(({ id }) => id !== action.payload)
+            return state.filter(idea => idea._id !== action.payload)
 
         case UPDATE_IDEA:
             return state.map(idea => {

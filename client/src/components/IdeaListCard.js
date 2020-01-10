@@ -13,7 +13,7 @@ class IdeaListCard extends React.Component {
     }
 
     onRemove = (id) => {
-        this.props.removeIdea(this.props.idea.id)
+        this.props.removeIdea(this.props.idea._id)
     }
 
     toggleEdit = () => {

@@ -8,7 +8,7 @@ export const IdeaList = (props) => (
     <div>
         {
             props.ideas.map(idea => (
-                <IdeaListCard key={idea.id} idea={idea} />
+                <IdeaListCard key={idea._id} idea={idea} />
             ))
         }
         <NewIdeaCard />
