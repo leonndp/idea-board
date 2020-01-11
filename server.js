@@ -2,7 +2,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const path = require('path')
-require('dotenv').config();
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+if (process.env.NODE_ENV === 'test') {
+    require('dotenv').config({ path: '.env.test' });
+} else if (process.env.NODE_ENV === 'development') {
+    require('dotenv').config({ path: '.env.development' });
+}
 
 const ideas = require('./routes/api/ideas')
 
