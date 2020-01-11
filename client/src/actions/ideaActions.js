@@ -26,13 +26,16 @@ export const removeIdea = (id) => dispatch => {
         }))
 }
 
-export const updateIdea = (id, updates) => ({
-    type: UPDATE_IDEA,
-    payload: {
-        id,
-        updates
-    }
-})
+export const updateIdea = (id, updates) => dispatch => {
+    axios.put(`/api/ideas/${id}`, updates)
+        .then(res => dispatch({
+            type: UPDATE_IDEA,
+            payload: {
+                id,
+                updates: res.data
+            }
+        }))
+}
 
 /* export const getIdeas = () => dispatch => {
     dispatch(setIdeasLoading());

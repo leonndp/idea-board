@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getIdeas } from './../actions/ideaActions'
 
 class IdeaBoard extends React.Component {
+
     componentDidMount() {
         this.props.getIdeas();
     }
@@ -18,7 +19,7 @@ class IdeaBoard extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    ideas: state.ideas
+    ideas: state.ideas.ideas
 })
 
 export default connect(mapStateToProps, { getIdeas })(IdeaBoard)

@@ -30,12 +30,14 @@ router.post('/', (req, res) => {
 // @desc    Update An Idea
 // @access  Public
 router.put('/:id', (req, res) => {
-    Idea.findById(req.params.id)
-        .then(idea => idea.update({
-            title: req.body.title,
-            content: req.body.content
-        }).then(() => res.json({ success: true })))
-        .catch(err => res.status(404).json({ success: false }))
+    Idea.findByIdAndUpdate(req.params.id, {
+        title: req.body.title,
+        content: req.body.content
+    },
+        { new: true },
+        (err, result) => {
+            err ? (res.status(404).json({ success: false })) : (res.json(result))
+        })
 })
 
 // @route   DELETE api/ideas/:id

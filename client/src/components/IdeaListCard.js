@@ -12,7 +12,7 @@ class IdeaListCard extends React.Component {
         }
     }
 
-    onRemove = (id) => {
+    onRemove = () => {
         this.props.removeIdea(this.props.idea._id)
     }
 
@@ -23,7 +23,7 @@ class IdeaListCard extends React.Component {
     }
 
     onSubmit = (idea) => {
-        this.props.updateIdea(this.props.idea.id, idea)
+        this.props.updateIdea(this.props.idea._id, { ...idea })
     }
 
     render() {
@@ -47,8 +47,6 @@ class IdeaListCard extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    ideas: state.ideas
-})
 
-export default connect(mapStateToProps, { removeIdea, updateIdea })(IdeaListCard)
+
+export default connect(undefined, { removeIdea, updateIdea })(IdeaListCard)
