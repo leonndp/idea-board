@@ -1,4 +1,4 @@
-import { SET_TEXT_FILTER, SORT_BY_DATE_ASCENDING, SORT_BY_DATE_DESCENDING, SORT_BY_NAME_ASCENDING, SORT_BY_NAME_DESCENDING } from '../actions/types'
+import { SET_TEXT_FILTER, SORT_BY_DATE, SORT_BY_NAME, ORDER_ASCENDING, ORDER_DESCENDING } from '../actions/types'
 
 const filtersReducerDefaultState = {
     text: '',

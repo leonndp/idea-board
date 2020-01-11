@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import IdeaListCard from './IdeaListCard';
 import NewIdeaCard from './NewIdeaCard'
+import selectIdeas from '../selectors/ideasSelector'
 // import { getIdeas } from '../actions/ideaActions'
 
 export class IdeaList extends React.Component {
@@ -12,19 +13,19 @@ export class IdeaList extends React.Component {
     render() {
         return (
             <div>
+                <NewIdeaCard />
                 {
                     this.props.ideas.map(idea => (
                         <IdeaListCard key={idea._id} idea={idea} />
                     ))
                 }
-                <NewIdeaCard />
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    ideas: state.ideas.ideas
+    ideas: selectIdeas(state.ideas.ideas, state.filters)
 })
 
 export default connect(mapStateToProps)(IdeaList)
