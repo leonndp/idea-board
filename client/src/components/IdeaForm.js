@@ -39,7 +39,7 @@ export default class IdeaForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit} className="idea-card__form">
                 {this.state.error && <p>{this.state.error}</p>}
                 <input
                     type="text"
@@ -47,14 +47,18 @@ export default class IdeaForm extends React.Component {
                     autoFocus
                     value={this.state.title}
                     onChange={this.onTitleChange}
+                    className="text-input text-input--font-large"
                 />
-                <input
-                    type="text"
+                <textarea
                     placeholder="content"
                     value={this.state.content}
                     onChange={this.onContentChange}
+                    className="textarea"
                 />
-                <button>Save</button>
+                <div className="idea-card__buttons">
+                    <button type="submit" className="btn">Save</button>
+                </div>
+
             </form>
         )
     }

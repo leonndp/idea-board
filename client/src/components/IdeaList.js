@@ -12,7 +12,7 @@ export class IdeaList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="grid">
                 <NewIdeaCard />
                 {
                     this.props.ideas.map(idea => (

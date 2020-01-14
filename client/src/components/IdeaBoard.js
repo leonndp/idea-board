@@ -12,7 +12,8 @@ class IdeaBoard extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="wrapper">
+                <h1>Idea Board</h1>
                 <IdeaListFilters />
                 <IdeaList />
             </div>

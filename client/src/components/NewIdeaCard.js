@@ -24,15 +24,19 @@ class NewIdeaCard extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="idea-card idea-card--new">
+                <div className="idea-card__buttons">
+                    <button onClick={this.toggleEdit} className="btn">
+                        {
+                            (this.state.isEditing === true) ? 'Cancel' : 'Add New Idea'
+                        }
+                    </button>
+                </div>
+
                 {
-                    (this.state.isEditing === true) ? (
+                    (this.state.isEditing === true) && (
                         <IdeaForm onSubmit={this.onSubmit} toggleEdit={this.toggleEdit} />
-                    ) : (
-                            <button onClick={this.toggleEdit}>
-                                Add New Idea
-                            </button>
-                        )
+                    )
                 }
             </div>
         )

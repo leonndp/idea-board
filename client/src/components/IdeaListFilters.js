@@ -36,6 +36,7 @@ export class IdeaListFilters extends React.Component {
                     value={this.props.filters.text}
                     onChange={this.onTextChange}
                 />
+                <p>Sort by: </p>
                 <select
                     value={this.props.filters.sortBy}
                     onChange={this.onSortChange}

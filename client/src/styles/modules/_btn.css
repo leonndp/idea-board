@@ -1,0 +1,21 @@
+.btn {
+    background-color: #5c7df6;
+    color: white;
+    border: none;
+    padding: .5rem 1rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+
+    &--x {
+        background-color: transparent;
+        color: #f6885c;
+        padding: 0;
+        transform: scaleX(1.5);
+    }
+}

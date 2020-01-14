@@ -1,0 +1,11 @@
+.grid {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    justify-content: space-between;
+    justify-items: center;
+    grid-gap: 1rem 2rem;
+
+    @mixin atMedium {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
