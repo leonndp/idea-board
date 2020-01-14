@@ -10,8 +10,4 @@
         padding-left:0;
         padding-right:0;
     }
-
-    &--no-padding {
-        padding: 0;
-    }
 }

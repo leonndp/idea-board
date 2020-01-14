@@ -29,29 +29,35 @@ export class IdeaListFilters extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="filters">
                 <input
                     type="text"
                     placeholder="Search for an idea"
                     value={this.props.filters.text}
                     onChange={this.onTextChange}
+                    className="filters__search text-input text-input__no-margin"
                 />
-                <p>Sort by: </p>
-                <select
-                    value={this.props.filters.sortBy}
-                    onChange={this.onSortChange}
-                >
-                    <option value="date">Date</option>
-                    <option value="name">Name</option>
-                </select>
+                <div className="filters__sort">
+                    <p>Sort by: </p>
+                    <select
+                        value={this.props.filters.sortBy}
+                        onChange={this.onSortChange}
+                        className="select"
+                    >
+                        <option value="date">Date</option>
+                        <option value="name">Name</option>
+                    </select>
 
-                <select
-                    value={this.props.filters.order}
-                    onChange={this.onOrderChange}
-                >
-                    <option value="ascending">Ascending</option>
-                    <option value="descending">Descending</option>
-                </select>
+                    <select
+                        value={this.props.filters.order}
+                        onChange={this.onOrderChange}
+                        className="select"
+                    >
+                        <option value="ascending">Ascending</option>
+                        <option value="descending">Descending</option>
+                    </select>
+                </div>
+
             </div>
         )
     }

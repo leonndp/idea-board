@@ -42,7 +42,7 @@ class IdeaListCard extends React.Component {
                     ) : (
                             <div className="wrapper wrapper--no-padding">
                                 <h3 className="idea-card__title">{this.props.idea.title}</h3>
-                                <p>{this.props.idea.content}</p>
+                                <p className="idea-card__content">{this.props.idea.content}</p>
                             </div>
                         )
                 }

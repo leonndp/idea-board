@@ -1,0 +1,19 @@
+.filters {
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: center;
+
+    &__search {
+        height: 100%;
+        margin-right: 2rem;
+    }
+
+    &__sort {
+        display: flex;
+        align-items: center;
+
+        & * {
+            margin-right: 1rem;
+        }
+    }
+}
