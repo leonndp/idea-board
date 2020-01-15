@@ -2,7 +2,12 @@
     display: flex;
     margin-bottom: 2rem;
     align-items: center;
+    justify-content: space-between;
 
+    @mixin atMedium {
+        justify-content: flex-start;
+    }
+    
     &__search {
         height: 100%;
         margin-right: 2rem;

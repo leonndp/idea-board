@@ -20,8 +20,12 @@
 
 .textarea {
     width: 100%;
-    min-height: 10rem;
+    min-height: 100%;
     resize: none;
+
+    @mixin atSmall {
+        min-height: 10rem;
+    }
 
     &:focus {
         outline: 0;

@@ -6,6 +6,10 @@
     grid-gap: 1rem 2rem;
 
     @mixin atMedium {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @mixin atLarge {
         grid-template-columns: repeat(4, 1fr);
     }
 }

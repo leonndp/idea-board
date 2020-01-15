@@ -38,7 +38,7 @@ export class IdeaListFilters extends React.Component {
                     className="filters__search text-input text-input__no-margin"
                 />
                 <div className="filters__sort">
-                    <p>Sort by: </p>
+                    <p>Sort: </p>
                     <select
                         value={this.props.filters.sortBy}
                         onChange={this.onSortChange}
