@@ -11,6 +11,10 @@ const IdeaSchema = new Schema({
     content: {
         type: String
     },
+    authorId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
     createdAt: {
         type: Date,
         default: moment()

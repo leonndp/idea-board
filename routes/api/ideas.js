@@ -1,25 +1,27 @@
 const express = require('express');
 const router = express.Router();
+const verify = require('../../middleware/verifyToken')
 
 // Idea Model
 const Idea = require('../../models/Idea')
 
 // @route   GET api/ideas
 // @desc    Get All Ideas
-// @access  Public
-router.get('/', (req, res) => {
-    Idea.find()
+// @access  Private
+router.get('/', verify, (req, res) => {
+    Idea.find({ authorId: req.user._id })
         .sort({ date: -1 })
         .then(ideas => res.json(ideas))
 });
 
 // @route   POST api/ideas
 // @desc    Create An Idea
-// @access  Public
-router.post('/', (req, res) => {
+// @access  Private
+router.post('/', verify, (req, res) => {
     const newIdea = new Idea({
         title: req.body.title,
-        content: req.body.content
+        content: req.body.content,
+        authorId: req.user._id
     });
 
     newIdea.save()
@@ -28,8 +30,8 @@ router.post('/', (req, res) => {
 
 // @route   PUT api/ideas/:id
 // @desc    Update An Idea
-// @access  Public
-router.put('/:id', (req, res) => {
+// @access  Private
+router.put('/:id', verify, (req, res) => {
     Idea.findByIdAndUpdate(req.params.id, {
         title: req.body.title,
         content: req.body.content
@@ -42,8 +44,8 @@ router.put('/:id', (req, res) => {
 
 // @route   DELETE api/ideas/:id
 // @desc    Delete An Idea
-// @access  Public
-router.delete('/:id', (req, res) => {
+// @access  Private
+router.delete('/:id', verify, (req, res) => {
     Idea.findById(req.params.id)
         .then(idea => idea.remove().then(() => res.json({ success: true })))
         .catch(err => res.status(404).json({ success: false }))
