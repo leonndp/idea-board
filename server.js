@@ -1,8 +1,12 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const bodyParser = require('body-parser')
 const path = require('path')
 
+// Import Routes
+const ideas = require('./routes/api/ideas')
+const auth = require('./routes/api/auth')
+
+// Setup environment vairables
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 if (process.env.NODE_ENV === 'test') {
@@ -11,16 +15,14 @@ if (process.env.NODE_ENV === 'test') {
     require('dotenv').config({ path: '.env.development' });
 }
 
-const ideas = require('./routes/api/ideas')
+// DB Config
+const db = process.env.MONGO_URI;
 
 const app = express();
 
-// BodyParser middleware
+// Middleware
 
-app.use(bodyParser.json())
-
-// DB Config
-const db = process.env.MONGO_URI;
+app.use(express.json())
 
 // Connect to Mongo
 mongoose
@@ -30,6 +32,7 @@ mongoose
 
 // Use Routes
 app.use('/api/ideas', ideas)
+app.use('/api/users', auth)
 
 // Serve static assets
 if (process.env.NODE_ENV === 'production') {
