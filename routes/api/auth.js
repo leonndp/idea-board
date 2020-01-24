@@ -29,7 +29,10 @@ router.post('/register', (req, res) => {
                     })
 
                     newUser.save()
-                        .then(user => res.json({ user: user._id }))
+                        .then(user => {
+                            const token = jwt.sign({ _id: user.id }, process.env.JWT_SECRET, { expiresIn: 3600 })
+                            res.header('auth-token', token).json({ token })
+                        })
                         .catch(err => res.status(400).send(err))
                 })
             })
