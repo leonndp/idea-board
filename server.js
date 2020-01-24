@@ -32,7 +32,7 @@ mongoose
 
 // Use Routes
 app.use('/api/ideas', ideas)
-app.use('/api/users', auth)
+app.use('/api/auth', auth)
 
 // Serve static assets
 if (process.env.NODE_ENV === 'production') {

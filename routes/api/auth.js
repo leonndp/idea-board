@@ -3,9 +3,9 @@ const User = require('../../models/User')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const { registerValidation, loginValidation } = require('./validation')
+const verify = require('../../middleware/verifyToken')
 
-
-// @route   POST api/user/register
+// @route   POST api/auth/register
 // @desc    Add user to database
 // @access  Public
 router.post('/register', (req, res) => {
@@ -36,7 +36,7 @@ router.post('/register', (req, res) => {
         })
 })
 
-// @route   POST api/user/login
+// @route   POST api/auth/login
 // @desc    Find user in database, return auth-token
 // @access  Public
 router.post('/login', (req, res) => {
@@ -56,6 +56,15 @@ router.post('/login', (req, res) => {
                 res.header('auth-token', token).json({ token })
             })
         })
+})
+
+// @route   GET api/auth/user
+// @desc    Get user data
+// @access  Private
+router.get('/user', verify, (req, res) => {
+    User.findById(req.user._id)
+        .select('-password')
+        .then(user => res.json(user))
 })
 
 module.exports = router

@@ -22,7 +22,8 @@ class IdeaBoard extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    ideas: state.ideas.ideas
+    ideas: state.ideas.ideas,
+    auth: state.auth
 })
 
 export default connect(mapStateToProps, { getIdeas })(IdeaBoard)
