@@ -1,0 +1,10 @@
+.landing-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    background-color: $mainYellow;
+}

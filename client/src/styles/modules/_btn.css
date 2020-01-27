@@ -3,6 +3,7 @@
     color: white;
     border: none;
     padding: .5rem 1rem;
+    display: inline-block;
 
     &:hover {
         cursor: pointer;
@@ -17,5 +18,9 @@
         color: #f6885c;
         padding: 0;
         transform: scaleX(1.5);
+    }
+
+    &--fill {
+        width: 100%;
     }
 }

@@ -15,12 +15,18 @@ class UserForm extends React.Component {
     }
 
     componentDidMount() {
-        this.userFormDiv = document.querySelector('.user-form')
+        this.userFormTabs = document.querySelectorAll('.user-form__tab')
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (this.state.mode !== prevState.mode) {
-            this.userFormDiv.classList.toggle('user-form--bg-blue')
+            this.userFormTabs.forEach(tab => {
+                if (tab.value === this.state.mode) {
+                    tab.classList.remove('user-form__tab--inactive')
+                } else {
+                    tab.classList.add('user-form__tab--inactive')
+                }
+            })
         }
     }
 
@@ -81,7 +87,7 @@ class UserForm extends React.Component {
             <div className="user-form">
                 <div className="user-form__mode">
                     <button onClick={this.changeMode} value="login" className="user-form__tab">Login</button>
-                    <button onClick={this.changeMode} value="register" className="user-form__tab user-form__tab--blue">Register</button>
+                    <button onClick={this.changeMode} value="register" className="user-form__tab user-form__tab--inactive">Register</button>
                 </div>
 
                 <form onSubmit={this.onSubmit} className="user-form__form">
@@ -113,7 +119,7 @@ class UserForm extends React.Component {
                         onChange={this.onPasswordChange}
                         className="text-input"
                     />
-                    <button type="submit" className="btn">Save</button>
+                    <button type="submit" className="btn btn--fill">Save</button>
                 </form>
             </div>
 

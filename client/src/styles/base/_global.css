@@ -1,5 +1,7 @@
 html {
     scroll-behavior: smooth;
+    height: 100%;
+    
 }
 
 img {
@@ -13,4 +15,8 @@ img {
 
 body {
     font-family: 'Roboto', sans-serif;
+}
+
+#app {
+    height: 100vh;
 }

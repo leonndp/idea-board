@@ -6,11 +6,17 @@ import store from './store';
 
 class App extends React.Component {
     componentDidMount() {
-        if (store.getState().auth.user) {
+        if (store.getState().auth.token) {
             store.dispatch(loadUser())
         }
 
     }
+
+    // componentDidUpdate() {
+    //     if (store.getState().auth.token) {
+    //         store.dispatch(loadUser())
+    //     }
+    // }
 
     render() {
         return (
