@@ -1,5 +1,5 @@
 .btn {
-    background-color: #5c7df6;
+    background-color: $mainBlue;
     color: white;
     border: none;
     padding: .5rem 1rem;

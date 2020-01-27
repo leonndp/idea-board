@@ -1,0 +1,39 @@
+.user-form {
+    border-radius: 5px;
+    max-width: 500px;
+    background-color: whitesmoke;
+
+    &--bg-blue {
+        background-color: $mainBlue;
+        color: white;
+    }
+
+    &__mode {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__tab {
+        width: 100%;
+        border: none;
+        padding: 1rem 2rem;
+        background-color: whitesmoke;
+        
+        &:hover {
+            cursor: pointer;
+        }
+    
+        &:focus {
+            outline: 0;
+        }
+
+        &--blue {
+            background-color: $mainBlue;
+            color: white;
+        }
+    }
+
+    &__form {
+        padding: 0 1rem;
+    }
+}

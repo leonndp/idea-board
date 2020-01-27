@@ -14,6 +14,16 @@ class UserForm extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.userFormDiv = document.querySelector('.user-form')
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.mode !== prevState.mode) {
+            this.userFormDiv.classList.toggle('user-form--bg-blue')
+        }
+    }
+
     onEmailChange = (e) => {
         const email = e.target.value;
         this.setState(() => ({ email }))
@@ -68,11 +78,13 @@ class UserForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.changeMode} value="login" className="btn">Login</button>
-                <button onClick={this.changeMode} value="register" className="btn">Register</button>
-                <form onSubmit={this.onSubmit}>
-                    {/* {this.state.error && <p>{this.state.error}</p>} */}
+            <div className="user-form">
+                <div className="user-form__mode">
+                    <button onClick={this.changeMode} value="login" className="user-form__tab">Login</button>
+                    <button onClick={this.changeMode} value="register" className="user-form__tab user-form__tab--blue">Register</button>
+                </div>
+
+                <form onSubmit={this.onSubmit} className="user-form__form">
                     <input
                         type="text"
                         placeholder="Email"
